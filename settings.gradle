@@ -1,0 +1,2 @@
+rootProject.name = 'CoreCanvas'
+include 'core', 'android', 'lwjgl3'

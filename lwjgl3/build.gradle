@@ -1,0 +1,17 @@
+apply plugin: 'application'
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+application { mainClass = 'com.saedarm.corecanvas.lwjgl3.Lwjgl3Launcher' }
+dependencies {
+    implementation project(':core')
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    implementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+}
+run {
+    workingDir = rootProject.file('assets')
+    ignoreExitValue = true
+    systemProperties System.getProperties().findAll { it.key in ['auto', 'speed', 'shots', 'game', 'length', 'pause'] }
+}
